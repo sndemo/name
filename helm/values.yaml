@@ -3,6 +3,6 @@ app:
   namespace: hello-t1
   ms:
     name: name 
-    version: 'v4'
+    version: 'v1'
     replicas: 2 
     image: 'sndemo/name'
