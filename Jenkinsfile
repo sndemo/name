@@ -53,8 +53,8 @@ podTemplate(
             container ('docker') {
 			    withDockerRegistry([url: ""]) {
 				        sh "docker login -u hclcloudworks -p cwhcl@123"
-					sh "docker build -t hclcloudworks/cloudworks:${params.AppName}.${env.BUILD_NUMBER} ."
-					sh "docker push hclcloudworks/cloudworks:${params.AppName}.${env.BUILD_NUMBER} "
+					sh "docker build -t hclcloudworks/cloudworks:${params.Identifier}.${params.AppName}.${env.BUILD_NUMBER} ."
+					sh "docker push hclcloudworks/cloudworks:${params.Identifier}.${params.AppName}.${env.BUILD_NUMBER} "
 				}
             }
         }
@@ -67,7 +67,7 @@ podTemplate(
 	stage('Remove Unused docker image') {
             container ('docker'){
 		    withDockerRegistry([url: ""]) {
-                           sh "docker rmi -f hclcloudworks/cloudworks:${params.AppName}.${env.BUILD_NUMBER}"
+                           sh "docker rmi -f hclcloudworks/cloudworks:${params.Identifier}.${params.AppName}.${env.BUILD_NUMBER}"
             }
         }
     }    
