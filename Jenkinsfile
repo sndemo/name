@@ -51,7 +51,8 @@ podTemplate(
         def repository
         stage ('Docker') {
             container ('docker') {
-			    withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
+			    withDockerRegistry([url: ""]) {
+				        sh "docker login -u hclcloudworks -p cwhcl@123"
 					sh "docker build -t hclcloudworks/cloudworks:${params.AppName}.${env.BUILD_NUMBER} ."
 					sh "docker push hclcloudworks/cloudworks:${params.AppName}.${env.BUILD_NUMBER} "
 				}
