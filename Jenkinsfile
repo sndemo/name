@@ -61,7 +61,7 @@ podTemplate(
         stage ('Deploy') {
             container ('helm') {
                 sh "helm init --client-only --skip-refresh"
-                sh "helm upgrade --install --namespace ${params.NameSpace} --wait --set service.identifier=${params.Identifier},service.port=${params.AppPort},service.name=${params.AppName},image.repository=hclcloudworks/cloudworks,image.tag=${params.AppName}.${env.BUILD_NUMBER} ${params.AppName} install/base/install/helm -f Values.yaml"
+                sh "helm upgrade --install --namespace ${params.NameSpace} --wait --set service.identifier=${params.Identifier},service.port=${params.AppPort},service.name=${params.AppName},image.repository=hclcloudworks/cloudworks,image.tag=${params.Identifier}.${params.AppName}.${env.BUILD_NUMBER} ${params.AppName} install/base/install/helm -f Values.yaml"
 			}
         }
 	stage('Remove Unused docker image') {
