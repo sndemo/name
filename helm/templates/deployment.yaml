@@ -28,7 +28,7 @@ spec:
         version: {{ .Values.app.ms.version }}
     spec:
       containers:
-      - name: {{ .Values.app.ms.name }}
+      - name: {{ .Values.app.name }}
         image: {{ .Values.app.image }}:{{ .Values.app.version }} 
         imagePullPolicy: IfNotPresent
         env:
