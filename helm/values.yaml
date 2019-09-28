@@ -1,8 +1,6 @@
 app:
-  name: hello 
-  namespace: hello-t1
-  ms:
-    name: name 
-    version: 'v2'
-    replicas: 2 
-    image: 'sndemo/name'
+  name: name 
+  namespace: hello
+  version: 'v2'
+  replicas: 2 
+  image: 'sndemo/name'
