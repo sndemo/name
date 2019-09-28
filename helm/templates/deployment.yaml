@@ -25,7 +25,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.app.name }} 
-        version: {{ .Values.app.ms.version }}
+        version: {{ .Values.app.version }}
     spec:
       containers:
       - name: {{ .Values.app.name }}
